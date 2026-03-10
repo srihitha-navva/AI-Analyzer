@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Website X-Ray</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-microscope text-gradient"></i>
+            <h1>Web<span class="text-gradient">X-Ray</span></h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h2 class="hero-title">Deep <span class="text-gradient">Semantic Analysis</span> of Any Website</h2>
+            <p class="hero-subtitle">Input a URL to instantly extract business models, features, competitors, and generate an AI startup score.</p>
+            
+            <form id="analyze-form" class="search-bar glass-panel">
+                <i class="fa-solid fa-link icon-left"></i>
+                <input type="url" id="url-input" placeholder="https://example.com" required autocomplete="off">
+                <button type="submit" id="submit-btn" class="glow-button">
+                    <span>Analyze</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+            
+            <div id="loading-indicator" class="hidden">
+                <div class="scanner"></div>
+                <p>Crawling pages, extracting intelligence, and consulting AI...</p>
+            </div>
+            
+            <div id="error-message" class="hidden error-alert glass-panel"></div>
+            <div id="warning-message" class="hidden warning-alert glass-panel"></div>
+        </section>
+
+        <section id="results-dashboard" class="dashboard hidden">
+            <!-- Top Section -->
+            <div class="dashboard-grid top-grid">
+                <div class="card glass-panel col-span-1 screenshot-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-camera"></i>
+                        <h3>Capture</h3>
+                    </div>
+                    <div class="image-container">
+                        <img id="res-screenshot" src="" alt="Website Screenshot">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+
+                <div class="card glass-panel col-span-2">
+                    <div class="card-header">
+                        <i class="fa-solid fa-brain"></i>
+                        <h3>Executive Summary</h3>
+                        <span class="badge" id="res-category"></span>
+                    </div>
+                    <div class="card-body">
+                        <p id="res-summary" class="summary-text"></p>
+                    </div>
+                    
+                    <div class="metrics-row mt-4">
+                        <div class="metric-box">
+                            <span class="metric-label">Content Layout</span>
+                            <span class="metric-value text-gradient" id="res-model">Structured Text</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Details Dashboard -->
+            <div class="dashboard-grid bottom-grid mt-6">
+                <div class="card glass-panel flex-grow-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-key"></i>
+                        <h3>Key Insights</h3>
+                    </div>
+                    <ul id="res-key-points" class="feature-list"></ul>
+                    
+                    <div class="tech-stack-container mt-auto pt-4">
+                        <h4><i class="fa-solid fa-code"></i> Detected Stack</h4>
+                        <div id="res-tech-stack" class="tags-container"></div>
+                    </div>
+                </div>
+
+                <div class="card glass-panel flex-grow-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-list-check"></i>
+                        <h3>Study Notes & Actionables</h3>
+                    </div>
+                    <ul id="res-notes" class="feature-list"></ul>
+                </div>
+
+                <div class="card glass-panel flex-grow-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-book-open"></i>
+                        <h3>Further Reading</h3>
+                    </div>
+                    <div class="market-section mt-4">
+                        <ul id="res-resources" class="competitor-list"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
